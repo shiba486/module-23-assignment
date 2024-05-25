@@ -1,5 +1,6 @@
 import express from "express";
 const app = express()
+import { config } from "./src/config/config.js";
 
 
 //security libray require
@@ -22,7 +23,7 @@ import { rateLimit } from 'express-rate-limit'
 // CORS INITIAL
 app.use(cors(
     {
-        origin: process.env.CORS_ORIGIN,
+        origin: config.CORS_ORIGIN,
         credentials: true,
         methods:["get","post","put","delete"],
         
@@ -39,8 +40,6 @@ app.use(cookieParser());
 const limiter = rateLimit({windowMs: 15 * 60 * 1000, limit: 100})
 app.use(limiter)
 app.use(mongoSanitize());
-
-// ROUTES
 
 
 
