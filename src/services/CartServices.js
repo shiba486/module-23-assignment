@@ -16,19 +16,6 @@ export const SaveListService=async(req)=>{
     }
 }
 
-export const UpdateCartListService=async(req)=>{
-    try {
-        const user_id = req.headers["user_id"]
-        const cart_id = req.params["cartID"]
-        const reqBody = req.body
-        
-    
-        const data = await CartModel.updateOne({userID:user_id,cartID:cart_id},{$set: reqBody},{upsert:true})
-        return {status:"success",message:"Cart List update Success"}
-    } catch (error) {
-        return {status:"fail",message:"Something went wrong"}
-    }
-}
 
 export const RemoveCartListService=async(req)=>{
     try {

@@ -41,7 +41,10 @@ const limiter = rateLimit({windowMs: 15 * 60 * 1000, limit: 100})
 app.use(limiter)
 app.use(mongoSanitize());
 
+// ROUTES
+import router from "./src/routes/api.js";
 
+app.use("/api/v1",router)
 
 
 //home route
