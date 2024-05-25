@@ -1,9 +1,9 @@
 import {DecodeToken} from "./../utils/tokenHelper.js"
 
 export const authVerification=(req,res,next)=>{
-        let token = req.headers["token"]
+        let token = req.cookies["token"]
         if(!token){
-            token = req.cookies["token"]
+            token = req.headers["token"]
            
         }
         let decodeToken = DecodeToken(token)
